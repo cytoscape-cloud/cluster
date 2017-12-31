@@ -9,6 +9,7 @@ spec:
     metadata:
       labels:
         app: external-dns
+        version: v1
     spec:
       containers:
       - name: external-dns
