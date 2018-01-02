@@ -68,28 +68,30 @@ data:
 apiVersion: v1
 kind: Service
 metadata:
-  name: heat-diffusion-v3
+  name: heat-diffusion-service-v3
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: v3.heat-diffusion.cytoscape.io.
+    external-dns.alpha.kubernetes.io/hostname: v4.heat-diffusion.cytoscape.io.
 spec:
   ports:
     - name: http
       port: 80
       targetPort: cxmate-http
   selector:
-    app: heat-diffusion-v3
+    app: heat-diffusion
+    version: v3
   type: LoadBalancer
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: heat-diffusion-v3
+  name: heat-diffusion-deployment-v3
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: heat-diffusion-v3
+        app: heat-diffusion
+        version: v3
     spec:
       containers:
       - name: heat-diffusion
