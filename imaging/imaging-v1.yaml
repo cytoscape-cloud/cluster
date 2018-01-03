@@ -1,0 +1,58 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: imaging-service-v1
+  annotations:
+    external-dns.alpha.kuberenetes.io/hostname: v1.imaging.cytoscape.io.
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: acceptor-http
+  selector:
+    app: imaging
+    version: v1
+  type: LoadBalancer
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: imaging-deployment-v1
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: imaging
+        version: v1
+    spec:
+      containers:
+      - name: image-acceptor
+        image: cytoscape/image-acceptor
+        ports:
+          - name: acceptor-http
+            containerPort: 8080
+        env:
+          - name: GENERATOR_ENDPOINT
+            value: http://localhost:5000
+          - name: STORAGE_ENDPOINT
+            value: v1.storage.cytoscape.io
+          - name: PUBLIC_IMAGES_BUCKET
+            value: images
+          - name: PRIVATE_IMAGES_BUCKET
+            value: images-private
+          - name: STORAGE_ACCESS_KEY
+            valueFrom:
+              secretKeyRef:
+                name: storage-secret-v1
+                key: minio_access_key
+          - name: STORAGE_SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                name: storage-secret-v1
+                key: minio_secret_key
+      - name: image-generator
+        image: cytoscape/image-generator
+        ports:
+        - name: generator-http
+          containerPort: 5000
