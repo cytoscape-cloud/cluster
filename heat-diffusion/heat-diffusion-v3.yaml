@@ -70,7 +70,7 @@ kind: Service
 metadata:
   name: heat-diffusion-service-v3
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: v4.heat-diffusion.cytoscape.io.
+    external-dns.alpha.kubernetes.io/hostname: v3.heat-diffusion.cytoscape.io.
 spec:
   ports:
     - name: http
