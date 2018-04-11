@@ -1,11 +1,21 @@
-# Cytoscape Cloud Introduction
+Cytoscape Cloud
+===============
+
+<img align="right" height="300" src="http://www.cytoscape.org/images/logo/cy3logoOrange.svg">
+
+---
+
 The Cytoscape cloud exists as a collection of Google Cloud Projects running in Google Cloud Platform (GCP).  The Cytoscape Cloud provides a backend for the Cytoscape Cyberinfastructure. This document describes the logical organization of the Cytoscape Cloud in GCP, the rules that must be followed to use and develop for and against the Cytoscape Cloud, and Cytoscape Cloud best practices.
 
 The Cytoscape Cloud runs on Google Cloud Platform (GCP). GCP is analogous to Amazon Web Services (AWS) or Microsoft Azure (Azure). GCP uses a cloud console or command line tool (cloud) to access and manipulate cloud resources like virtual machines, container registries, clusters, and block storage. Resources are completely separated by projects. Identity Access Management (IAM) is controlled at the project level.
 
 The most important resources in the Cytoscape Cloud are the Kubernetes clusters. Kubernetes is a container scheduling and clustering technology developed by Google, based on in house technologies used to run all Google infastructure. The Cytoscape cloud is primarily concerned with the deployment of services, which provide programmable APIs on the publicly routable internet. Many GCP resources, including composed services, may be used to support these primary services. Other GCP resources may be used to provide other useful features to the Cytoscape team, such as StackDriver logging and monitoring, or Google object storage.
 
-# Production and Testing projects
+---
+
+Production and Testing projects
+-------------------------------
+
 The Cytoscape cloud team uses GCP projects to manage access and air gap production and staging deployments from our test environment. Therefore, two projects names exist that all Cytoscape developers must be intimately familiar with, `cytoscape-cloud` and` cytoscape-cloud-test`. `cytoscape-cloud` contains both the production and staging resources, while the `cytoscape-cloud-test` contains testing resources.  
 
 Before digging into the differences between the two projects, we must cover some definitions common to both projects.
