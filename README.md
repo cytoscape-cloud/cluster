@@ -1,6 +1,9 @@
 Cytoscape Cloud
 ===============
 
+[![Generic badge](https://img.shields.io/badge/production-ok-green.svg)](https://shields.io/)
+[![Generic badge](https://img.shields.io/badge/staging-ok-green.svg)](https://shields.io/)
+
 <img align="right" height="300" src="http://www.cytoscape.org/images/logo/cy3logoOrange.svg">
 
 ---
@@ -12,6 +15,8 @@ The Cytoscape Cloud runs on Google Cloud Platform (GCP). GCP is analogous to Ama
 The most important resources in the Cytoscape Cloud are the Kubernetes clusters. Kubernetes is a container scheduling and clustering technology developed by Google, based on in house technologies used to run all Google infastructure. The Cytoscape cloud is primarily concerned with the deployment of services, which provide programmable APIs on the publicly routable internet. Many GCP resources, including composed services, may be used to support these primary services. Other GCP resources may be used to provide other useful features to the Cytoscape team, such as StackDriver logging and monitoring, or Google object storage.
 
 ---
+
+_cxMate is an official [Cytoscape](http://www.cytoscape.org) project written by the Cytoscape team._
 
 Production and Testing projects
 -------------------------------
