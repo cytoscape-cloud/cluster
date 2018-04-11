@@ -22,7 +22,38 @@ data:
         "description": "Aligns two networks",
         "license": "MIT",
         "language": "Golang",
-        "parameters": [],
+        "parameters": [
+                     {
+        "name": "-t",   
+        "default": "1",     
+        "description": "The duration of the alignment algorithm",
+        "type": "string"
+      },
+      {
+        "name": "-alpha",   
+        "default": "1.0",
+        "description": "Sets topology weight",
+        "type": "string"       
+      },                                                           
+      {                     
+        "name": "-beta",
+        "default": "0.0",
+        "description": "Sets sequence weight",
+        "type": "string"                                            
+      },                    
+      {
+        "name": "-nodes-have-types",
+        "default": "false", 
+        "description": "Do the nodes have distinguishing types",
+        "type": "string"
+      },                     
+      {                                                  
+        "name": "-seed",    
+        "default": "RANDOM",
+        "description": "Seed value for SANA execution.",
+        "type": "string"
+      }
+        ],
         "singletonInput": false,
         "input": [
           {
